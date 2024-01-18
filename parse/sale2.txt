@@ -1,0 +1,7 @@
+<img src="https://www.caprigoshop.ru/17412-home_default/kukhnya-krasnaya-tower.jpg"
+class="replace-2x img-responsive lazyloaded"
+data-src="https://www.caprigoshop.ru/17412-home_default/kukhnya-krasnaya-tower.jpg"
+alt="Кухня красная TOWER "
+title="Кухня красная TOWER"
+width="250" height="250"
+itemprop="image">
