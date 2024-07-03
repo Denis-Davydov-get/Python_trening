@@ -6,15 +6,18 @@
 # Input: l1 = [2,4,3], l2 = [5,6,4]
 # Output: [7,0,8]
 # Explanation: 342 + 465 = 807.
+def add_two_numbers(l1: list, l2: list) -> list:
+    for i in range(0, len(l1)):
+        for j in range(0, len(l2)):
+            result = l1[i] + l2[j]
+            res_list = []
+            res_list.append(result)
+            return res_list
+
+
 class Solution:
-    def add_two_numbers(self, l1: list, l2: list) -> list:
-        for i in range(0, len(l1)):
-            for j in range(0, len(l2)):
-                result = l1[i] + l2[j]
-                res_list =[]
-                res_list.append(result)
-                return res_list
+    pass
 
 s = Solution()
 l1, l2 = [5, 6, 4], [2, 4, 3]
-print(s.add_two_numbers(l1, l2))
+print(add_two_numbers(l1, l2))
