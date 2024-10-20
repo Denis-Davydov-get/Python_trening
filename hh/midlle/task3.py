@@ -15,13 +15,14 @@
 # 21 7 5
 
 def get_dominate_prices(stock_prices: str) -> str:
-    res_list = stock_prices.split()
-    return_list = []
-    for i in range(len(res_list) - 1):
-        for j in range(i + 1, len(res_list)):
-            if res_list[i] > res_list[j]:
-                return_list.append(res_list[i])
-    return " ".join(return_list)
+    list_number = stock_prices.split()
+    int_list = [int(x) for x in list_number]
+    res_list = []
+    for i in range(1, len(int_list) - 1):
+        if int_list[int(i)] > int_list[int(i) + 1]:
+            res_list.append(str(int_list[i]))
+    res_list.append(str(int_list[-1]))
+    return ' '.join(res_list)
 
 
 stock_prices = '1 21 4 7 5'
