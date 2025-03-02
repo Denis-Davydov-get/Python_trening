@@ -1,31 +1,28 @@
-import telebot
-from db import CreateMenu
-
-bot = telebot.TeleBot('5345054662:AAHjmzzNwUXRShqykpUy9rJ1cFnFzLktsTk')
-
-# cm = CreateMenu()
+import requests
+import time
 
 
-@bot.message_handler(commands=["start"])
-def start(message):
-    bot.send_message(message.chat.id, "Добро пожаловать", reply_markup=cm.create_menu('main'))
+API_URL = 'https://api.telegram.org/bot'
+BOT_TOKEN = '5345054662:AAHjmzzNwUXRShqykpUy9rJ1cFnFzLktsTk'
+TEXT = 'Ура! Классный апдейт!'
+MAX_COUNTER = 100
+
+offset = -2
+counter = 0
+chat_id: int
 
 
-# @bot.callback_query_handler(func=lambda call: True)
-# def callback_inline(call):
-#     if call.data == 'buy':
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Что покупаем?",
-#                               reply_markup=cm.create_menu('buy'))
-#     if call.data == 'sell':
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Что продаём?",
-#                               reply_markup=cm.create_menu('sell'))
-#     if call.data == 'back':
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Добро пожаловать",
-#                               reply_markup=cm.create_menu('main'))
-#     if call.data == 'help':
-#         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-#                               text="Ничем не могу помочь тебе", reply_markup=cm.create_menu('help'))
+while counter < MAX_COUNTER:
 
+    print('attempt =', counter)  #Чтобы видеть в консоли, что код живет
 
-if __name__ == "__main__":
-    bot.polling(none_stop=True)
+    updates = requests.get(f'{API_URL}{BOT_TOKEN}/getUpdates?offset={offset + 1}').json()
+
+    if updates['result']:
+        for result in updates['result']:
+            offset = result['update_id']
+            chat_id = result['message']['from']['id']
+            requests.get(f'{API_URL}{BOT_TOKEN}/sendMessage?chat_id={chat_id}&text={TEXT}')
+
+    time.sleep(1)
+    counter += 1

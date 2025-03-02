@@ -6,5 +6,6 @@ response = requests.get(url).content
 soup = BeautifulSoup(response, 'html.parser')
 # with open('1.txt', 'w', encoding="utf-8") as f:
 #     f.write(soup)
-mydivs = soup.find_all("div", {"class": "products-item__footer"})
-print(soup)
+# mydivs = soup.find_all("div", {"class": "products-item__footer"})
+my_divs = soup.find_all("div")
+print(my_divs)
