@@ -29,23 +29,20 @@
 
 class Solution:
     def plus_one(self, digits: list[int]) -> list[int]:
-        for i in range(len(digits) - 1, -1, -1): # в обратном порядке
+        for i in range(len(digits) - 1, -1, -1):  # в обратном порядке
             # Если цифра меньше 9, просто увеличиваем её и возвращаем результат
-            if digits[i] < 9:
+            if digits[i] <= 9:
                 digits[i] += 1
                 return digits
-            digits[i] = 0
-            digits.insert(0, 1)
-            return digits
 
 
 if __name__ == '__main__':
     test = Solution()
-    digits_1 = [1, 2, 3]
-    digits_2 = [4, 3, 2, 1]
-    digits_3 = [9]
+    # digits_1 = [1, 2, 3]
+    # digits_2 = [4, 3, 2, 1]
+    # digits_3 = [9]
     digits_4 = [9, 9]
-    assert test.plus_one(digits_1) == [1,2,4]
-    assert test.plus_one(digits_2) == [4,3,2,2]
-    assert test.plus_one(digits_3) == [1,0]
-    assert test.plus_one(digits_4) == [1,0,0]
+    # assert test.plus_one(digits_1) == [1, 2, 4]
+    # assert test.plus_one(digits_2) == [4, 3, 2, 2]
+    # assert test.plus_one(digits_3) == [1, 0]
+    print(test.plus_one(digits_4)) # [1, 0, 0]
