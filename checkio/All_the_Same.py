@@ -4,7 +4,7 @@ from typing import List, Any
 
 def all_the_same(elements: List[Any]) -> bool:
     for i in range(len(elements) - 1):
-        if elements[i] != elements[i+1] and len(elements) > 2:
+        if elements[i] != elements[i+1]:
             return False
     return True
 
