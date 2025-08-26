@@ -10,6 +10,8 @@ cost = [1270, 8413, 9028, 3703, 5739, 4095, 295, 4944, 5723, 3701,
 # 1 Соедините два словаря в один
 merge_lists = date + cost
 print(merge_lists)
+
+
 # 2 Напишите функцию, которая из двух списков, делает один словарь, где
 # элементы из первого списка - ключи, а элементы из второго списка -
 # значения
@@ -17,10 +19,10 @@ print(merge_lists)
 # merge_list_for_dict = dict(zip(date, cost))
 # print(merge_list_for_dict)
 
-def merge_list_for_dict(spisok_1:list, spisok_2:list) -> dict:
+def merge_list_for_dict(spisok_1: list, spisok_2: list) -> dict:
     new_dict = {}
-    for i in range(len(spisok_1)):
-        new_dict[spisok_1[i]] = spisok_2[i]
+    for k, v in new_dict.items():
+        new_dict[spisok_1] = new_dict[spisok_2]
     return new_dict
 
 # print(merge_list_for_dict(date, cost))
