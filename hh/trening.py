@@ -2,7 +2,7 @@
 # output f"выше нуля: {count_a}, ниже нуля: {count_b}, равна нулю: {count_c}"
 
 def process(input_string: str) -> str:
-    new_list = input_string.split()
+    input_string = input_string.split()
     count_a, count_b, count_c = 0, 0, 0
     for i in input_string:
         i = int(i)
